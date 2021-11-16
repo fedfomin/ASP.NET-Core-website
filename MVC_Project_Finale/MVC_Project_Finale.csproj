@@ -14,8 +14,6 @@
     <Folder Include="Dominio\" />
     <Folder Include="EF\Data\" />
     <Folder Include="EF\Model\" />
-    <Folder Include="Persistance\Common\" />
-    <Folder Include="Persistance\Services\" />
     <Folder Include="Services\Common\" />
   </ItemGroup>
 
