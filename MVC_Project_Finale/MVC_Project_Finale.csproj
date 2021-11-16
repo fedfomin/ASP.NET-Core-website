@@ -14,7 +14,6 @@
     <Folder Include="Dominio\" />
     <Folder Include="EF\Data\" />
     <Folder Include="EF\Model\" />
-    <Folder Include="Services\Common\" />
   </ItemGroup>
 
 </Project>

@@ -19,11 +19,27 @@ namespace MVC_Project_Finale.EF.Data
         {
         }
 
+        public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Products> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
+
+            modelBuilder.Entity<Categories>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+
+                entity.Property(e => e.CategoryName)
+                    .IsRequired()
+                    .HasMaxLength(15);
+
+                entity.Property(e => e.Description).HasColumnType("ntext");
+
+                entity.Property(e => e.Picture).HasColumnType("image");
+            });
 
             modelBuilder.Entity<Products>(entity =>
             {
