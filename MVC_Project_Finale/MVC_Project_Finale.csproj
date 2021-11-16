@@ -12,9 +12,11 @@
 
   <ItemGroup>
     <Folder Include="Dominio\" />
-    <Folder Include="Persistance\common\" />
-    <Folder Include="Persistance\services\" />
-    <Folder Include="Services\common\" />
+    <Folder Include="EF\Data\" />
+    <Folder Include="EF\Model\" />
+    <Folder Include="Persistance\Common\" />
+    <Folder Include="Persistance\Services\" />
+    <Folder Include="Services\Common\" />
   </ItemGroup>
 
 </Project>
