@@ -29,12 +29,9 @@ namespace MVC_Project_Finale
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             var connection = Configuration.GetConnectionString("DefaultConnection");
-
             services.AddControllersWithViews();
             services.AddTransient<IRepository<Product>, ProductRepository>(i => { return new(connection); });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
