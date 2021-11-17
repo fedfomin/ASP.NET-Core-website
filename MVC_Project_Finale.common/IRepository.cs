@@ -9,9 +9,8 @@ namespace MVC_Project_Finale.common
     public interface IRepository<T>
     {
         IEnumerable<T> Get();
-        T Update(int id);
-        T Create(T element);
-        T Edit(T element);
-        T Delete(int id);
+        T Update(T element);
+        T Insert(T element);
+        bool Delete(T element);
     }
 }

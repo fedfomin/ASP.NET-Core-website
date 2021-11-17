@@ -5,7 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVC_Project_Finale.common;
+using MVC_Project_Finale.persistence.msql;
 using MVC_Project_Finale.persistence.msql.Data;
+using MVC_Project_Finale.persistence.msql.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +28,12 @@ namespace MVC_Project_Finale
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<NORTHWINDContext>(options => options.UseSqlServer (Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<NORTHWINDContext>(options => 
+                options.UseSqlServer 
+                (Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllersWithViews();
+            //services.AddTransient<IRepository<Products>, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

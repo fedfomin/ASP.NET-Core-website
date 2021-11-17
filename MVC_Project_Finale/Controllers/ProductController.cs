@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using MVC_Project_Finale.Models;
 
 namespace MVC_Project_Finale.Controllers
 {
@@ -22,7 +23,7 @@ namespace MVC_Project_Finale.Controllers
 
         public IActionResult Index()
         {
-
+            var products = _context.Products.ToList();
             return View();
         }
     }

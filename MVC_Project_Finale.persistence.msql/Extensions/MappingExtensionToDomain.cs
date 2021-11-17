@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Project_Finale.persistence.msql.Extensions
 {
-    public static class MappingExtensionToDomain
+    internal static class MappingExtensionToDomain
     {
         public static IEnumerable<Product> ProjectToDomain(this IQueryable<Products> query)
         {

@@ -8,6 +8,6 @@ namespace MVC_Project_Finale.Models
 {
     public class ProductsViewModel
     {
-        public List<persistence.msql.Models.Products> listProdotti;
+        public List<Product> listaProdotti;
     }
 }

@@ -13,22 +13,13 @@ namespace MVC_Project_Finale.persistence.msql
     {
         private readonly NORTHWINDContext _context;
 
+
         public CategoryRepository(NORTHWINDContext context)
         {
             _context = context;
         }
 
-        public Categories Create(Categories element)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Categories Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Categories Edit(Categories element)
+        public bool Delete(Categories element)
         {
             throw new NotImplementedException();
         }
@@ -38,7 +29,12 @@ namespace MVC_Project_Finale.persistence.msql
             throw new NotImplementedException();
         }
 
-        public Categories Update(int id)
+        public Categories Insert(Categories element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Categories Update(Categories element)
         {
             throw new NotImplementedException();
         }

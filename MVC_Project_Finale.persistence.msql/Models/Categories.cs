@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace MVC_Project_Finale.persistence.msql.Models
 {
-    public partial class Categories
+    internal class Categories
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
