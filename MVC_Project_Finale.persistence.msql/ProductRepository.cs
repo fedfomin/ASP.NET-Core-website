@@ -22,20 +22,17 @@ namespace MVC_Project_Finale.persistence.msql
 
         public bool Delete(Product element)
         {
-            try { _context.Products.Remove(element); return true; }
-            catch { return false; }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Product> Get()
         {
-            return _context.Products.AsQueryable();
+            throw new NotImplementedException();
         }
 
         public Product Insert(Product element)
         {
-            element.ProductId = _context.Products.Max(x => x.ProductId) + 1;
-            _context.Products.Add(element);
-            return element;
+            throw new NotImplementedException();
         }
 
         public Product Update(Product element)
