@@ -12,6 +12,7 @@ namespace MVC_Project_Finale.persistence.msql
 {
     public class ProductRepository : IRepository<Product>
     {
+
         private readonly NORTHWINDContext _context;
 
         public ProductRepository(string connectionString)
@@ -19,35 +20,36 @@ namespace MVC_Project_Finale.persistence.msql
             _context = new(connectionString);
         }
 
-        public bool Delete(Product element)
+        public bool Delete(int Id)
         {
-            try
-            {
-                _context.Products.ProjectToDomain();
+            try {
+                _context.Products.Remove(_context.Products.Find(Id));
                 _context.SaveChanges();
                 return true;
             }
-            catch
-            {
+            catch {
                 return false;
             }
         }
 
         public IEnumerable<Product> Get()
         {
-            return _context.Products.ProjectToDomain();
+            return _context.Products.AsQueryable().ProjectToDomain();
         }
             
         public Product Insert(Product element)
         {
-            element.Id = _context.Products.ProjectToDomain().Max(x => x.Id) + 1;
-            _context.Add(element);
+            int x = _context.Products.Add(element.ProjectToModel()).Entity.ProductId;
+            _context.SaveChanges();
+            element.CategoryId = x;
             return element;
         }
 
         public Product Update(Product element)
         {
-            throw new NotImplementedException();
+            _context.Products.Update(element.ProjectToModel());
+            _context.SaveChanges();
+            return element;
         }
     }
 }

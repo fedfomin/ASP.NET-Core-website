@@ -11,6 +11,6 @@ namespace MVC_Project_Finale.common
         IEnumerable<T> Get();
         T Update(T element);
         T Insert(T element);
-        bool Delete(T element);
+        bool Delete(int Id);
     }
 }

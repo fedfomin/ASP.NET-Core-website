@@ -19,10 +19,18 @@ namespace MVC_Project_Finale.persistence.msql
             _context = new(connectionString);
         }
 
-        public bool Delete(Category element)
+        public bool Delete(int Id)
         {
-            try { _context.Categories.ProjectToDomain(); return true; }
-            catch { return false; }
+            try
+            {
+                _context.Categories.Remove(_context.Categories.Find(Id));
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Category> Get()
@@ -32,14 +40,17 @@ namespace MVC_Project_Finale.persistence.msql
 
         public Category Insert(Category element)
         {
-            element.Id = _context.Products.ProjectToDomain().Max(x => x.Id) + 1;
-            _context.Add(element);
+            int x = _context.Categories.Add(element.ProjectToModel()).Entity.CategoryId;
+            _context.SaveChanges();
+            element.Id = x;
             return element;
         }
 
         public Category Update(Category element)
         {
-            throw new NotImplementedException();
+            _context.Categories.Update(element.ProjectToModel());
+            _context.SaveChanges();
+            return element;
         }
     }
 }

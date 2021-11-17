@@ -36,5 +36,29 @@ namespace MVC_Project_Finale.persistence.msql.Extensions
                 Picture = x.Picture
             });
         }
+
+        internal static Products ProjectToModel(this Product domain)
+        {
+            return new Products()
+            {
+                CategoryId = domain.CategoryId,
+                ProductId = domain.Id,
+                Discontinued = domain.Discontinued,
+                UnitPrice = domain.UnitPrice,
+                ProductName = domain.Name,
+                UnitsInStock = domain.UnitsInStock
+            };
+        }
+
+        internal static Categories ProjectToModel(this Category domain)
+        {
+            return new Categories()
+            {
+                CategoryId = domain.Id,
+                CategoryName = domain.Name,
+                Description = domain.Description,
+                Picture = domain.Picture
+            };
+        }
     }
 }

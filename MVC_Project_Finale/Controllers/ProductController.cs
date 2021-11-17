@@ -27,5 +27,11 @@ namespace MVC_Project_Finale.Controllers
             p.listaProdotti = _repository.Get().ToList();
             return View(p);
         }
+
+        public IActionResult Delete(int Id)
+        {
+            var q = _repository.Delete(Id);
+            return RedirectToAction("Index", q);
+        }
     }
 }
