@@ -2,11 +2,11 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using MVC_Project_Finale.EF.Model;
+using DBLibrary.EF.Model;
 
 #nullable disable
 
-namespace MVC_Project_Finale.EF.Data
+namespace DBLibrary.EF.Data
 {
     public partial class NORTHWINDContext : DbContext
     {

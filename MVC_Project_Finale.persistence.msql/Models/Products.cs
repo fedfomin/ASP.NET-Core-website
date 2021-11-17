@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace MVC_Project_Finale.EF.Model
+namespace MVC_Project_Finale.persistence.msql.Models
 {
     public partial class Products
     {

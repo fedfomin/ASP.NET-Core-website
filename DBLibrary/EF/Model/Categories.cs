@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace MVC_Project_Finale.EF.Model
+namespace DBLibrary.EF.Model
 {
     public partial class Categories
     {
