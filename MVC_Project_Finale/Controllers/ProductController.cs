@@ -12,12 +12,10 @@ namespace MVC_Project_Finale.Controllers
 {
     public class ProductController : Controller
     {
-        private NORTHWINDContext _context;
-        private readonly ILogger<ProductController> _logger;
+        NORTHWINDContext _context;
 
-        public ProductController(ILogger<ProductController> logger, NORTHWINDContext context)
+        public ProductController(NORTHWINDContext context)
         {
-            _logger = logger;
             _context = context;
         }
 
