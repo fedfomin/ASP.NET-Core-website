@@ -1,7 +1,6 @@
 ﻿using MVC_Project_Finale.common;
 using MVC_Project_Finale.domain;
 using MVC_Project_Finale.persistence.msql.Data;
-using MVC_Project_Finale.persistence.msql.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +12,6 @@ namespace MVC_Project_Finale.persistence.msql
     public class CategoryRepository : IRepository<Category>
     {
         private readonly NORTHWINDContext _context;
-
-        public CategoryRepository(NORTHWINDContext context)
-        {
-            _context = context;
-        }
 
         public bool Delete(Category element)
         {

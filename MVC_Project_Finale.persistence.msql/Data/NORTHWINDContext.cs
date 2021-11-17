@@ -8,10 +8,20 @@ using MVC_Project_Finale.persistence.msql.Models;
 
 namespace MVC_Project_Finale.persistence.msql.Data
 {
-    public partial class NORTHWINDContext : DbContext
+    internal partial class NORTHWINDContext : DbContext
     {
         public NORTHWINDContext()
         {
+
+        }
+
+        public NORTHWINDContext(string connectionString) : base(GetOptions(connectionString))
+        {
+        }
+
+        private static DbContextOptions GetOptions(string connectionString)
+        {
+            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
         }
 
         public NORTHWINDContext(DbContextOptions<NORTHWINDContext> options)
@@ -19,8 +29,8 @@ namespace MVC_Project_Finale.persistence.msql.Data
         {
         }
 
-        internal virtual DbSet<Categories> Categories { get; set; }
-        internal virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
