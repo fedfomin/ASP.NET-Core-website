@@ -1,1 +1,34 @@
-﻿<h1>Product page index.</h1>
+﻿@model ProductsViewModel
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ProductID</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">SupplierID</th>
+            <th scope="col">CategoryID</th>
+            <th scope="col">QuantityPerUnity</th>
+            <th scope="col">UnitPrice</th>
+            <th scope="col">UnitsInStock</th>
+            <th scope="col">UnitsOnOrder</th>
+            <th scope="col">ReorderLevel</th>
+            <th scope="col">Discontinued</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var element in Model.listaProdotti)
+        {
+            <tr>
+                <th scope="row">@element.Id</th>
+                <td>@element.Name</td>
+                <td>@element.SupplierId</td>
+                <td>@element.CategoryId</td>
+                <td>@element.QuantityPerUnit</td>
+                <td>@element.UnitPrice</td>
+                <td>@element.UnitsInStock</td>
+                <td>@element.UnitsOnOrder</td>
+                <td>@element.ReorderLevel</td>
+                <td>@element.Discontinued</td>
+            </tr>
+        }
+    </tbody>
+</table>
