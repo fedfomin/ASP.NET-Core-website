@@ -21,10 +21,28 @@ namespace MVC_Project_Finale.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page, int perPage)
         {
+            if (perPage <= 0)
+            {
+                perPage = 8;
+            }
+
+            int n = _repository.Get().ToList().Count();
+            int nPage = (n / perPage) + (n % perPage == 0 ? 0 : 1);
+            int maxPage = nPage - 1;
+
+            if (page < 0 || page > maxPage)
+            {
+                page = 0;
+            }
+
             ProductsViewModel p = new();
-            p.listaProdotti = _repository.Get().ToList();
+            p.listaProdotti = _repository.Get().Skip(page * perPage).Take(perPage).ToList();
+            p.MaxPage = maxPage;
+            p.PerPage = perPage;
+            p.ActualPage = page;
+
             return View(p);
         }
 

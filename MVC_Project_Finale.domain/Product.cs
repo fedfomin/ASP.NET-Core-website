@@ -18,5 +18,6 @@ namespace MVC_Project_Finale.domain
         public short? UnitsOnOrder { get; set; }
         public short? ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+
     }
 }

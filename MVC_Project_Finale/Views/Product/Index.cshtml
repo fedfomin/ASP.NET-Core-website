@@ -35,3 +35,33 @@
         }
     </tbody>
 </table>
+
+<nav aria-label="center">
+    <ul class="pagination justify-content-center">
+        <li class="@(Model.ActualPage == 0 ? "page-item disabled" : "page-item")">
+            <a class="page-link" href="?page=@(Model.ActualPage-1)&perPage=@(Model.PerPage)" tabindex="-1">Previous</a>
+        </li>
+
+        @foreach (int i in PaginationUtility.PaginationArray(Model.ActualPage, Model.MaxPage))
+        {
+            if (i == -1)
+            {
+                <li class="page-item disabled">
+                    <a class="page-link">...</a>
+                </li>
+            }
+            else
+            {
+                <li class="@(i == Model.ActualPage ? "page-item active" : "page-item")">
+                    <a class="page-link" href="?page=@(i)&perPage=@(Model.PerPage)">@(i + 1)</a>
+                </li>
+            }
+
+        }
+
+        <li class="@(Model.ActualPage == Model.MaxPage ? "page-item disabled" : "page-item")">
+            <a class="page-link" href="?page=@(Model.ActualPage+1)&perPage=@(Model.PerPage)">Next</a>
+        </li>
+
+    </ul>
+</nav>
