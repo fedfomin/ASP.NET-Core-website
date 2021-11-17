@@ -23,7 +23,7 @@ namespace MVC_Project_Finale.Controllers
 
         public IActionResult Index()
         {
-            var products = _context.Products.ToList();
+            //var products = _context.Products.ToList();
             return View();
         }
     }
