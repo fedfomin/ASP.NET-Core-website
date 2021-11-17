@@ -21,8 +21,16 @@ namespace MVC_Project_Finale.persistence.msql
 
         public bool Delete(Product element)
         {
-            try { _context.Products.ProjectToDomain(); return true; }
-            catch { return false; }
+            try
+            {
+                _context.Products.ProjectToDomain();
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Product> Get()
