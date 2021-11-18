@@ -25,7 +25,7 @@ namespace MVC_Project_Finale.services
 
         public IQueryable<Product> Get()
         {
-            throw new NotImplementedException();
+            return _repository.Get().AsQueryable();
         }
 
         public Product GetByID(int id)

@@ -23,6 +23,7 @@ namespace MVC_Project_Finale.Controllers
 
         public IActionResult Index(int page, int perPage)
         {
+            #region Paginazione
             if (perPage <= 0)
             {
                 perPage = 8;
@@ -36,6 +37,7 @@ namespace MVC_Project_Finale.Controllers
             {
                 page = 0;
             }
+            #endregion
 
             ProductsViewModel p = new();
             p.listaProdotti = _repository.Get().Skip(page * perPage).Take(perPage).ToList();
@@ -50,6 +52,11 @@ namespace MVC_Project_Finale.Controllers
         {
             var q = _repository.Delete(Id);
             return RedirectToAction("Index", q);
+        }
+
+        public IActionResult Edit(int Id)
+        {
+            return View();
         }
     }
 }

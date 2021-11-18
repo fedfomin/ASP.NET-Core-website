@@ -11,7 +11,7 @@ namespace MVC_Project_Finale.Utility
         {
             if (maxPage < 13)
             {
-                return Enumerable.Range(0, 13).ToList();
+                return Enumerable.Range(0, maxPage + 1).ToList();
             }
             else if (actualPage + 2 <= 8)
             {
